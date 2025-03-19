@@ -1,0 +1,3 @@
+telegram
+configarser
+redis
