@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for chatbot2333 on 2025-03-19T16:18:05+08:00
+# fly.toml app configuration file generated for chatbot233333333-fragrant-log-8318 on 2025-03-19T17:15:15+08:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'chatbot2333'
+app = 'chatbot233333333-fragrant-log-8318'
 primary_region = 'hkg'
 
 [build]
@@ -13,18 +13,21 @@ primary_region = 'hkg'
   PORT = '8080'
 
 [[services]]
+  protocol = 'tcp'
   internal_port = 8000
-  protocol = "tcp"
+
+  [[services.ports]]
+    port = 80
+    handlers = ['http']
+
+  [[services.ports]]
+    port = 443
+    handlers = ['tls', 'http']
+
   [services.concurrency]
+    type = 'connections'
     hard_limit = 25
     soft_limit = 20
-    type = "connections"
-  [[services.ports]]
-    handlers = ["http"]
-    port = 80
-  [[services.ports]]
-    handlers = ["tls", "http"]
-    port = 443
 
 [[vm]]
   size = 'shared-cpu-1x'
