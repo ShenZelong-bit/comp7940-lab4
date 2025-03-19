@@ -3,7 +3,7 @@
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'chatbot233333333-fragrant-log-8318'
+app = 'chatbot233333333'
 primary_region = 'hkg'
 
 [build]
